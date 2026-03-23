@@ -42,7 +42,7 @@ BEGIN
   SELECT * FROM users WHERE id = p_id;
 END //
 
--- UPDATE ✅ FIXED
+-- UPDATE
 CREATE PROCEDURE update_user (
   IN p_id INT,
   IN p_role ENUM('admin','user'),
@@ -54,14 +54,6 @@ BEGIN
     role = p_role,
     status = p_status
   WHERE id = p_id;
-END //
-
--- DELETE
-CREATE PROCEDURE delete_user (
-  IN p_id INT
-)
-BEGIN
-  DELETE FROM users WHERE id = p_id;
 END //
 
 DELIMITER ;

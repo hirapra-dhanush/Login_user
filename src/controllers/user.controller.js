@@ -130,13 +130,3 @@ exports.updateUser = catchAsyncError(async (req, res, next) => {
     });
 });
 
-
-//  DELETE USER
-exports.deleteUser = catchAsyncError(async (req, res) => {
-    await userModel.deleteUser(req.params.id);
-
-    res.json({
-        success: true,
-        message: "User deleted"
-    });
-});
