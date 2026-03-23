@@ -3,16 +3,20 @@ const router = express.Router();
 
 const userController = require("../controllers/user.controller");
 
+// MIDDLEWARE
+const { isAuth } = require("../middlewares/auth.middleware");
+const authorizeRoles = require("../middlewares/role.middleware");
+
 // AUTH
 router.post("/register", userController.registerUser);
 router.post("/login", userController.loginUser);
 
-// USERS
-router.get("/users", userController.getUsers);
-router.get("/users/:id", userController.getUser);
+//  USERS (ONLY ADMIN)
+router.get("/users", isAuth, authorizeRoles("admin"), userController.getUsers);
 
-//update
-router.put("/users/:id", userController.updateUser);
+router.get("/users/:id", isAuth, authorizeRoles("admin"), userController.getUser);
 
+//  UPDATE (ONLY ADMIN)
+router.put("/users/:id", isAuth, authorizeRoles("admin"), userController.updateUser);
 
 module.exports = router;
