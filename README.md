@@ -1,13 +1,13 @@
 # Login User API
 
-## 🚀 Features
+## Features
 
 - User Register & Login
 - JWT Authentication
 - Role-based access (admin/user)
 - User status (active, blocked)
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - Node.js
 - Express
@@ -18,7 +18,7 @@
 - cors
 - dotenv
 
-## 📦 Setup
+##  Setup
 
 ```bash
 npm install
