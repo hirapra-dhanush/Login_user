@@ -2,13 +2,13 @@ const multer = require("multer");
 const path = require("path");
 
 // storage config
-const storage = multer.diskStorage({
+const storage = multer.diskStorage({ 
     destination: (req, file, cb) => {
         cb(null, "src/uploads/driver-documents");
     },
     filename: (req, file, cb) => {
         const uniqueName =
-            Date.now() + "-" + Math.round(Math.random() * 1e9);
+            Date.now() + "-" + Math.round(Math.random() * 1e9); 
         cb(
             null,
             uniqueName + path.extname(file.originalname)
